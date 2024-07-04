@@ -9,8 +9,8 @@ interface LoveApiService {
 
     @GET("getPercentage")
     fun getPercentage(
-        @Header("X-Rapidapi-Key") key: String,
-        @Header("X-RapiDapi-Host") host: String,
+        @Header("X-Rapidapi-Key") key: String = "13db8c0c9fmsh0e8b65404615b3ap1035a5jsn85bfe5faab5c",
+        @Header("X-RapiDapi-Host") host: String = "love-calculator.p.rapidapi.com",
         @Query("fname") firstName: String,
         @Query("sname") secondName: String
     ): Call<LoveResult>
