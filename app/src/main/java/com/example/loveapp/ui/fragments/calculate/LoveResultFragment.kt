@@ -34,7 +34,7 @@ class LoveResultFragment : Fragment() {
             val loveCalculatorFragment = LoveCalculatorFragment()
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, loveCalculatorFragment)
+                .replace(R.id.nav_host_fragment, loveCalculatorFragment)
                 .addToBackStack(null)
                 .commit()
         }
