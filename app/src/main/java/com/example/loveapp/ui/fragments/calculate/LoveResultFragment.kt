@@ -9,6 +9,7 @@ import com.example.loveapp.R
 import com.example.loveapp.databinding.FragmentLoveResultBinding
 
 class LoveResultFragment : Fragment() {
+
     private val binding by lazy {
         FragmentLoveResultBinding.inflate(layoutInflater)
     }
