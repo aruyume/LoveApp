@@ -9,7 +9,7 @@
         android:id="@+id/loveResultFragment"
         android:name="com.example.loveapp.ui.fragments.calculate.LoveResultFragment"
         android:label="fragment_love_result"
-        tools:layout="@layout/fragment_love_result" >
+        tools:layout="@layout/fragment_love_result">
         <action
             android:id="@+id/action_loveResultFragment_to_loveCalculatorFragment"
             app:destination="@id/loveCalculatorFragment" />
@@ -19,7 +19,7 @@
         android:id="@+id/loveCalculatorFragment"
         android:name="com.example.loveapp.ui.fragments.calculate.LoveCalculatorFragment"
         android:label="fragment_love_calculator"
-        tools:layout="@layout/fragment_love_calculator" >
+        tools:layout="@layout/fragment_love_calculator">
         <action
             android:id="@+id/action_loveCalculatorFragment_to_loveResultFragment"
             app:destination="@id/loveResultFragment" />
@@ -29,7 +29,7 @@
         android:id="@+id/onBoardFragment"
         android:name="com.example.loveapp.ui.fragments.onboard.OnBoardFragment"
         android:label="fragment_on_board"
-        tools:layout="@layout/fragment_on_board" >
+        tools:layout="@layout/fragment_on_board">
         <action
             android:id="@+id/action_onBoardFragment_to_loveCalculatorFragment"
             app:destination="@id/loveCalculatorFragment" />
@@ -40,4 +40,4 @@
         android:name="com.example.loveapp.ui.fragments.onboard.OnBoardViewPagerFragment"
         android:label="fragment_on_board_view_pager"
         tools:layout="@layout/fragment_on_board_view_pager" />
-    </navigation>
+</navigation>

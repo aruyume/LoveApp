@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.loveapp.R
 import com.example.loveapp.databinding.FragmentLoveResultBinding
 
@@ -12,6 +13,7 @@ class LoveResultFragment : Fragment() {
     private val binding by lazy {
         FragmentLoveResultBinding.inflate(layoutInflater)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,12 +33,11 @@ class LoveResultFragment : Fragment() {
         binding.tvPercentage.text = "$percentage%"
 
         binding.btnTryAgain.setOnClickListener {
-            val loveCalculatorFragment = LoveCalculatorFragment()
+            findNavController().navigate(R.id.action_loveResultFragment_to_loveCalculatorFragment)
+        }
 
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.nav_host_fragment, loveCalculatorFragment)
-                .addToBackStack(null)
-                .commit()
+        binding.btnHeartHome.setOnClickListener {
+            findNavController().navigate(R.id.action_loveResultFragment_to_loveCalculatorFragment)
         }
     }
 }
