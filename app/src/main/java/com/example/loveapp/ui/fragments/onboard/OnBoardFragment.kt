@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.loveapp.R
 import com.example.loveapp.databinding.FragmentOnBoardBinding
-import com.example.loveapp.sharedpreferences.SharedPreferencesHelper
+import com.example.loveapp.application.SharedPreferencesHelper
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

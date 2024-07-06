@@ -1,4 +1,4 @@
-package com.example.loveapp.sharedpreferences
+package com.example.loveapp.application
 
 import android.content.SharedPreferences
 import javax.inject.Inject

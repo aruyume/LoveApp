@@ -6,8 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.loveapp.R
 import com.example.loveapp.data.network.LoveApiService
 import com.example.loveapp.databinding.ActivityMainBinding
-import com.example.loveapp.sharedpreferences.SharedPreferencesHelper
-import com.example.loveapp.ui.fragments.calculate.LoveCalculatorFragment
+import com.example.loveapp.application.SharedPreferencesHelper
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
