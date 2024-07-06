@@ -1,15 +1,17 @@
-package com.example.loveapp.mvvm
+package com.example.loveapp.mvvm.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.example.loveapp.data.network.LoveApiService
 import com.example.loveapp.data.network.LoveResult
-import com.example.loveapp.data.network.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class LoveRepository {
-    private val api = RetrofitService.api
-    private var loveResults = MutableLiveData<LoveResult>()
+class LoveRepository @Inject constructor(
+    private val api: LoveApiService,
+) {
+    private val loveResults = MutableLiveData<LoveResult>()
 
     fun getLoveResult(firstName: String, secondName: String): MutableLiveData<LoveResult> {
         api.getPercentage(

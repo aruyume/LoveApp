@@ -4,21 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.loveapp.R
 import com.example.loveapp.databinding.FragmentLoveCalculatorBinding
-import com.example.loveapp.mvvm.LoveViewModel
+import com.example.loveapp.mvvm.viewmodel.LoveViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoveCalculatorFragment : Fragment() {
+
+    private val viewModel: LoveViewModel by viewModels()
 
     private val binding: FragmentLoveCalculatorBinding by lazy {
         FragmentLoveCalculatorBinding.inflate(layoutInflater)
     }
 
-    private val viewModel by lazy {
-        ViewModelProvider(this)[LoveViewModel::class.java]
+    private val progressBar: ProgressBar by lazy {
+        binding.progressBar
     }
 
     override fun onCreateView(
@@ -40,10 +46,15 @@ class LoveCalculatorFragment : Fragment() {
                 return@setOnClickListener
             }
 
+            //ProgressBar
+            progressBar.visibility = View.VISIBLE
+
             viewModel.getLoveResult(
                 firstName = firstName,
                 secondName = secondName
             ).observe(viewLifecycleOwner) { loveResults ->
+                progressBar.visibility = View.GONE
+
                 if (loveResults != null) {
                     val percentage = loveResults.percentage.toIntOrNull() ?: 0
                     val bundle = Bundle().apply {
@@ -52,17 +63,14 @@ class LoveCalculatorFragment : Fragment() {
                         putInt("percentage", percentage)
                     }
 
-                    val resultFragment = LoveResultFragment().apply {
-                        arguments = bundle
-                    }
-
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.nav_host_fragment, resultFragment)
-                        .addToBackStack(null).commit()
+                    findNavController().navigate(
+                        R.id.action_loveCalculatorFragment_to_loveResultFragment,
+                        bundle
+                    )
                 } else {
                     Toast.makeText(
                         requireContext(),
-                        "Error: ",
+                        "Error: Failed to get results",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
