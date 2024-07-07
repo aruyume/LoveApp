@@ -30,23 +30,28 @@ class OnBoardViewPagerFragment : Fragment() {
             0 -> {
                 tvTitle.text = "Have a good time"
                 tvDescription.text = "You should take the time to help those who need you"
-                imageView.setImageResource(R.drawable.bg_onboard0)
+                binding.lottie.setAnimation(R.raw.lottie4)
             }
 
             1 -> {
                 tvTitle.text = "Cherishing love"
                 tvDescription.text = "It's now no longer possible for you to cherish love"
-                imageView.setImageResource(R.drawable.bg_onboard2)
+                binding.lottie.setAnimation(R.raw.lottie2)
             }
 
             2 -> {
                 tvTitle.text = "Have a breakup?"
                 tvDescription.text = "We have made the correction for you don't worry" +
                         "Maybe someone is waiting for you!"
-                imageView.setImageResource(R.drawable.bg_onboard3)
+                binding.lottie.setAnimation(R.raw.lottie1)
+            }
+
+            3 -> {
+                binding.lottie.setAnimation(R.raw.lottie3)
             }
         }
     }
+
     companion object {
         const val ARG_ONBOARD_POSITION = "onBoard"
     }

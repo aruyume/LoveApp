@@ -66,6 +66,21 @@ dependencies {
     //Dagger-Hilt
     implementation("com.google.dagger:hilt-android:2.51.1")
     kapt("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    //Room
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    kapt("androidx.room:room-compiler:$room_version")
+
+    //View pager 2
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("com.google.android.material:material:1.4.0")
+
+    //Lottie
+        .    val lottieVersion = "6.4.0"
+    implementation ("com.airbnb.android:lottie:$lottieVersion")
+    implementation ("com.google.code.gson:gson:2.8.8")
 }
 kapt {
     correctErrorTypes = true

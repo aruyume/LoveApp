@@ -10,6 +10,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.loveapp.R
 import com.example.loveapp.databinding.FragmentOnBoardBinding
 import com.example.loveapp.application.SharedPreferencesHelper
+import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -37,6 +38,10 @@ class OnBoardFragment : Fragment() {
     private fun initialize() {
         val viewPager2 = binding.viewPager2
         viewPager2.adapter = OnBoardAdapterFragment(this)
+
+        val tabLayout = binding.tabLayout
+        TabLayoutMediator(tabLayout, viewPager2) { tab, position ->
+        }.attach()
     }
 
     private fun setupListener() {
@@ -52,12 +57,6 @@ class OnBoardFragment : Fragment() {
                 }
             }
         })
-
-        binding.btnStart.setOnClickListener {
-            if (binding.viewPager2.currentItem < 4) {
-                binding.viewPager2.setCurrentItem(binding.viewPager2.currentItem + 3, true)
-            }
-        }
 
         binding.btnStart.setOnClickListener {
             sharedPreferencesHelper.setOnBoardShown()
